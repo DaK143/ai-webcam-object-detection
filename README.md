@@ -2,33 +2,49 @@
 
 
 
-Autor: Daniel Kabanen
+Autor: Daniel 
 
 
 
-\## Projekti kirjeldus
-
-Selle projekti eesmärk on kasutada laptopi kaamerat ja tehisintellekti mudelit objektide tuvastamiseks reaalajas.
+\## Projekti eesmärk
 
 
 
-Programm loeb pilti kaamerast ja töötleb seda YOLOv8 objektituvastusmudeliga.
+Selle projekti eesmärk on kasutada laptopi sisseehitatud kaamerat ja tehisintellekti mudelit objektide tuvastamiseks reaalajas. Programm loeb kaamerapilti ning kasutab YOLOv8 objektituvastusmudelit, et leida kaadris olevaid objekte.
 
 
 
 \## Kasutatud tehnoloogiad
 
+
+
+Projektis kasutati järgmisi tehnoloogiaid:
+
+
+
 \- Python
 
 \- OpenCV
 
-\- YOLOv8
+\- Ultralytics YOLOv8 mudel
 
 
 
-\## Süsteemi tööpõhimõte
+\## Süsteemi arhitektuur
 
-Laptopi kaamera → Python programm → YOLO mudel → objektide tuvastus ekraanil.
+
+
+Süsteem töötab järgmiselt:
+
+
+
+1\. Laptopi sisseehitatud kaamera edastab videopildi Python programmile.
+
+2\. Programm töötleb iga kaadrit YOLOv8 objektituvastusmudeliga.
+
+3\. Mudel tuvastab pildil olevad objektid ja märgib need kastidega.
+
+4\. Tuvastatud objektid kuvatakse ekraanil koos tõenäosusega.
 
 
 
@@ -36,7 +52,7 @@ Laptopi kaamera → Python programm → YOLO mudel → objektide tuvastus ekraan
 
 
 
-Installi paketid:
+Kõigepealt tuleb paigaldada vajalikud paketid:
 
 
 
@@ -44,7 +60,7 @@ pip install -r requirements.txt
 
 
 
-Käivita programm:
+Seejärel saab programmi käivitada käsuga:
 
 
 
@@ -54,19 +70,37 @@ python main.py
 
 \## Programmi kasutamine
 
-s – salvesta pilt  
-
-q – sulge programm
 
 
+Programmi käivitamisel avaneb kaamera aken.
 
-\## Näidispildid
 
-Näidispildid asuvad kaustas \*\*results\*\*.
+
+Kasutaja saab kasutada järgmisi klahve:
+
+
+
+\- \*\*s\*\* – salvestab kaadri koos tuvastatud objektidega
+
+\- \*\*q\*\* – sulgeb programmi
+
+
+
+Salvestatud pildid lisatakse kausta \*\*results\*\*.
+
+
+
+\## Tulemused
+
+
+
+Testimise käigus tuvastas süsteem edukalt mitmeid igapäevaesemeid. Näiteks tuvastati piltidel klaviatuur, pudel, tass ja apelsin. Näidispildid süsteemi tööst on lisatud kausta \*\*results\*\*.
 
 
 
 \## Kasutatud mudel
 
-YOLOv8 nano (yolov8n.pt)
+
+
+Projektis kasutati eeltreenitud objektituvastusmudelit \*\*YOLOv8 nano (yolov8n.pt)\*\*, mis on kerge ja sobib reaalajalähedaseks objektituvastuseks.
 
